@@ -1,54 +1,14 @@
-import reactImg from "./assets/react-core-concepts.png";
-const reactDescriptions = ["Fundamental", "Crucial", "Core"];
-import componentImg from "./assets/components.png";
-import { CORE_CONCEPTS } from "./data.js";
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-function Header() {
-  const description = reactDescriptions[getRandomInt(3)];
-  return (
-    <header>
-      <img src={reactImg} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        {description} React concepts you will need for almost any app you are
-        going to build!
-      </p>
-    </header>
-  );
-}
-
-function CoreConcepts({ image, title, description }) {
-  return (
-    <li>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
-  );
-}
+import Header from "./components/Headers/Header.jsx";
+import CoreConcepts from "./components/CoreConcepts.jsx";
+import Examples from "./components/Examples.jsx";
 
 function App() {
   return (
     <div>
       <Header></Header>
       <main>
-        <section id="core-concepts">
-          <ul>
-            <CoreConcepts
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-              image={CORE_CONCEPTS[0].image}
-            />
-            <CoreConcepts {...CORE_CONCEPTS[1]} />
-            <CoreConcepts {...CORE_CONCEPTS[2]} />
-            <CoreConcepts {...CORE_CONCEPTS[3]} />
-          </ul>
-        </section>
-        <h2>Core Concepts</h2>
+        <CoreConcepts></CoreConcepts>
+        <Examples></Examples>
       </main>
     </div>
   );
